@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <title>Pre Loading Images</title>
+    <script>
+        function onLoadMethod() {
+            var imageLoad = new Image();
+            imageLoad.src = "images/banner1.jpg"
+        }
+        function changeImage() {
+            document.getElementById('volunteerToday').src = 'images/banner1.jpg';
+        }
+    </script>
+</head>
+
+<body onload="onLoadMethod()">
+    <img src="
+https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunflower_from_Silesia2.jpg/800px-Sunflower_from_Silesia2.jpg"
+        alt="Image 1" id="image1" onclick="changeImage()" />
+</body>
+
+</html>
