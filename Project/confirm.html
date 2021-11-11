@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-US">
+<meta charset="UTF-8" />
 
 <head>
-    <title>Interests Page</title>
+    <title>Confirmation Page</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <script src="js/validation.js"></script>
 </head>
 
-<body>
+<body onload="GetPassedInParameters()">
     <header>
         <div class="top">
             <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
@@ -31,7 +34,9 @@
 
         <h1>Confirmed , Well Done!!! </h1>
 
-        <div id="Confirmation">
+        
+
+        <div id="node-id">
         </div>
 
 
@@ -39,13 +44,9 @@
 
     <footer>This events site is for IT3515 tasks.
     </footer>
+    
 
-    <script>
-        window.onload = function () {
-            displayFormData("Confirmation");
-        }
 
-    </script>
 </body>
 
 </html>

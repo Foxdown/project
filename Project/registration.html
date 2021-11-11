@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US">
+<meta charset="UTF-8" />
 
 <head>
     <title>Invitation Page</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <meta charset="UTF-8" />
-    <script src="validation.js"></script>
+
+    <script src="js/validation.js"></script>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
                 </li>
                 <li><a href="invitation.html">Invitation</a>
                 </li>
-				<li><a href="volunteer.html">Volunteers</a>
+                <li><a href="volunteer.html">Volunteers</a>
                 </li>
                 <li><a href="gallery.html">Gallery</a>
                 </li>
@@ -29,54 +30,59 @@
 
         </nav>
     </header>
-    <form  onsubmit="myFunction()"></form>
+
     <section id="pageForm">
-        <form action="#">
+        <form action="/registration.html" onsubmit="return validate()" method="get">
 
             <label for="userName">Username:</label>
-            <input type="text"  name="userName" placeholder="Enter your Username"  
-            pattern="[a-zA-Z][a-zA-Z0-9-_.]{1,20}" title="The username must start with a letter and must be between 1 and 20 characters long (inclusive)." required/>
+            <label2 id="userNameWarning"></label2>
+            <input type="text" name="userName" id="userName" placeholder="Enter your Username"
+                pattern="[a-zA-Z][a-zA-Z0-9-_.]{1,20}"
+                title="The username must start with a letter and must be between 1 and 20 characters long (inclusive)."
+                required />
 
             <label for="Password">Password:</label>
-            <input type="password" name="password" placeholder="Enter your Password" 
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+            <label2 id="passwordWarning"></label2>
+            <input type="password" name="password" id="password" placeholder="Enter your Password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                required />
 
             <label for="passwordVerify">Verify your Password:</label>
-            <input type="password" name="passwordVerify" placeholder="Enter in your Password again" title="Please re-enter your previous password"  />
+            <label2 id="passwordVerfiyWarning"></label2>
+            <input type="password" name="passwordVerify" id="passwordVerify" placeholder="Enter in your Password again"
+                title="Please re-enter your previous password" />
 
             <label for="firstName">First Name:</label>
-            <input type="text" name="firstName" placeholder="Enter your First Name" title= "Enter your First Name"required />
+            <label2 id="firstNameWarning"></label2>
+            <input type="text" name="firstName" id="firstName" placeholder="Enter your First Name"
+                title="Enter your First Name" required />
 
-            <label for="hostName">Last Name:</label>
-            <input type="text" name="lastName" placeholder="Enter your Last Name" title="Enter your Last Name"required />
+            <label for="lastName">Last Name:</label>
+            <label2 id="lastNameWarning"></label2>
+            <input type="text" name="lastName" id="lastName" placeholder="Enter your Last Name"
+                title="Enter your Last Name" required />
 
             <label for="email">Email:</label>
-            <input type="text" name="email" placeholder="Enter your Email Address"
-             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
+            <label2 id="emailWarning"></label2>
+            <input type="text" name="email" id="email" placeholder="Enter your Email Address" />
 
-			<label for="phoneNumber">Phone Number</label>
-            <input type="text" name="phoneNumber" placeholder="Enter your Phone Number"
-            pattern="^\d{3}-\d{3}-\d{4}$" title="please follow the format:xxx-xxx-xxxx" required />
+            <label for="phoneNumber">Phone Number</label>
+            <label2 id="phoneNumberWarning"></label2>
+            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter your Phone Number" />
 
-			<label for="signUpNewsletter">Sign up for newsletter:</label>
-			  <input type="radio" name="signUpNewsletter" value="Yes" checked> Yes 
-				<input type="radio" name="signUpNewsletter" value="No"> No
+            <label for="signUpNewsletter">Sign up for newsletter:</label>
+            <input type="radio" name="signUpNewsletter" value="Yes" checked> Yes
+            <input type="radio" name="signUpNewsletter" value="No"> No
 
-            <input type="submit" value="Next step" onClick="myfunction1">
+            <input type="submit" formaction="confirm.html" value="Next step">
         </form>
     </section>
 
     <footer>This events site is for IT3515 tasks.
     </footer>
-    <script>
-        function myFunction() {
-          alert("The form was submitted");
-        }
-            function myFunction1() {
-          alert("The form was not submitted");
-        }
-        </script>
-    
+
+
 </body>
 
 </html>
