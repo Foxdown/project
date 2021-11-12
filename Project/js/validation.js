@@ -41,7 +41,7 @@ function validate() {
     var lettersNumbers = /^[0-9a-zA-z]+$/;
     var letters = /^[A-Za-z]+$/;
     var emailValues = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var phoneValues = /^\(?([0-9]{3})\)?[-.]?([0-9]{3})[-.]?([0-9]{4})$/;
+    var phoneValues = /^\d{3}(-\d{3})(-\d{4})/;
 
     if (userName === "") {
         document.getElementById("userNameWarning").innerHTML = "Please provide a Username!";
@@ -93,14 +93,14 @@ function validate() {
         document.getElementById("emailWarning").innerHTML = "Please input a Valid email!";
         emailError = true;
     }
-    /* phoneNumber Verification
+    //phoneNumber Verification
     if (phoneNumber === "") {
         document.getElementById("phoneNumberWarning").innerHTML = "Please provide a phone number!";
         phoneNumberError = true;
     } else if (phoneValues.test(phoneNumber)) {
         document.getElementById("phoneNumberWarning").innerHTML = "Please input a valid phone number";
         phoneNumberError = true;
-    }*/
+    }
     // Set cursor
     if (userNameError === true) {
         document.getElementById("userName").focus();
@@ -131,32 +131,33 @@ function validate() {
 
 function GetPassedInParameters() {
     "use strict";
-    //store values passes from form 1 into variables
-    var userName = getUrlparameter("userName");
-    var password = getUrlparameter("password");
-    var passwordVerify = getUrlparameter("passwordVerify");
-    var firstName = getUrlparameter("firstName");
-    var lastName = getUrlparameter("lastName");
-    var email = getUrlparameter("email");
-    var phoneNumber = getUrlparameter("phoneNumber");
-    var signUpNewsletter = getUrlparameter("signUpNewsletter");
+    //store values passed from form 1 into variables
+
+    var userName = getUrlParameter("userName");
+    var password = getUrlParameter("password");
+    var passwordVerify = getUrlParameter("passwordVerify");
+    var firstName = getUrlParameter("firstName");
+    var lastName = getUrlParameter("lastName");
+    var email = getUrlParameter("email");
+    var phoneNumber = getUrlParameter("phoneNumber");
+    var signUpNewsletter = getUrlParameter("signUpNewsletter");
 
     //Create Cookies
 
-    document.cookie = "userName" + userName + ";";
-    document.cookie = "password" + password + ";";
-    document.cookie = "passwordVerify" + passwordVerify + ";";
-    document.cookie = "firstName" + firstName + ";";
-    document.cookie = "lastName" + lastName + ";";
-    document.cookie = "email" + email + ";";
-    document.cookie = "phoneNumber" + phoneNumber + ";";
-    document.cookie = "signUpNewsletter" + signUpNewsletter + ";";
+    document.cookie = "userName=" + userName + ";";
+    document.cookie = "password=" + password + ";";
+    document.cookie = "passwordVerify=" + passwordVerify + ";";
+    document.cookie = "firstName=" + firstName + ";";
+    document.cookie = "lastName=" + lastName + ";";
+    document.cookie = "email=" + email + ";";
+    document.cookie = "phoneNumber=" + phoneNumber + ";";
+    document.cookie = "signUpNewsletter=" + signUpNewsletter + ";";
 
-    GetPassedInParametersFromCookie()
+    GetPassedInParametersFromCookie();
 }
 
 // Function to parse data from urls
-function getUrlparameter(name) {
+function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(location.search);
