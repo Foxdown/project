@@ -169,5 +169,5 @@ function GetPassedInParametersFromCookie() {
     var x = document.cookie;
 
     // Display cookie
-    document.getElementById("node-id").innerhtml = x;
+    document.getElementById("node-id").innerHTML = x;
 }
